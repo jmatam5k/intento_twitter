@@ -1,0 +1,2 @@
+class Tweeeet < ApplicationRecord
+end
