@@ -29,7 +29,7 @@ class TweeeetsController < ApplicationController
 
     respond_to do |format|
       if @tweeeet.save
-        format.html { redirect_to @tweeeet, notice: 'Tweeeet was successfully created.' }
+        format.html { redirect_to root_path, notice: 'Tweeeet was successfully created.' }
         format.json { render :show, status: :created, location: @tweeeet }
       else
         format.html { render :new }
