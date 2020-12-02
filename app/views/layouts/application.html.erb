@@ -35,6 +35,8 @@
 					<div class="field is-grouped">
 						<p class="control">
 							<%= link_to "New Tweet", new_tweeeet_path, class: "button is-info is-inverted" %>
+							<%= link_to "Iniciar sesión", user_session_path, class: "button is-info is-inverted" %>
+							<%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete, class: "button is-info is-inverted" %>
 						</p>
 					</div>
 				</div>

@@ -1,10 +1,11 @@
 class TweeeetsController < ApplicationController
   before_action :set_tweeeet, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
 
   # GET /tweeeets
   # GET /tweeeets.json
   def index
-    @tweeeets = Tweeeet.all
+    @tweeeets = Tweeeet.all.order("created_at DESC") #ordena los tweets de forma descendente
     @tweeeet = Tweeeet.new
   end
 
@@ -29,7 +30,7 @@ class TweeeetsController < ApplicationController
 
     respond_to do |format|
       if @tweeeet.save
-        format.html { redirect_to root_path, notice: 'Tweeeet was successfully created.' }
+        format.html { redirect_to root_path, notice: 'Tweet creado con éxito!' }
         format.json { render :show, status: :created, location: @tweeeet }
       else
         format.html { render :new }
@@ -43,7 +44,7 @@ class TweeeetsController < ApplicationController
   def update
     respond_to do |format|
       if @tweeeet.update(tweeeet_params)
-        format.html { redirect_to @tweeeet, notice: 'Tweeeet was successfully updated.' }
+        format.html { redirect_to @tweeeet, notice: 'Tweet actualizado con éxito!' }
         format.json { render :show, status: :ok, location: @tweeeet }
       else
         format.html { render :edit }
@@ -57,7 +58,7 @@ class TweeeetsController < ApplicationController
   def destroy
     @tweeeet.destroy
     respond_to do |format|
-      format.html { redirect_to tweeeets_url, notice: 'Tweeeet was successfully destroyed.' }
+      format.html { redirect_to tweeeets_url, notice: 'Tweet eliminado con éxito!' }
       format.json { head :no_content }
     end
   end
