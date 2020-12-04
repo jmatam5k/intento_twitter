@@ -5,8 +5,10 @@ class TweeeetsController < ApplicationController
   # GET /tweeeets
   # GET /tweeeets.json
   def index
-    @tweeeets = Tweeeet.all.order("created_at DESC") #ordena los tweets de forma descendente
+    @tweeeets = Tweeeet
     @tweeeet = Tweeeet.new
+    @tweeeets = Tweeeet.page.all.order("created_at DESC")#ordena los tweets de forma descendente
+
   end
 
   # GET /tweeeets/1
