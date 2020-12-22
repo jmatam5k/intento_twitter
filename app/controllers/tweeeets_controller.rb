@@ -65,6 +65,12 @@ class TweeeetsController < ApplicationController
     end
   end
 
+  # def retweet
+  #   new_tweet = Tweeeet.create(content: @tweeeet.content, user: current_user, rt_ref: @tweet.id)
+
+  #   redirect_to root_path 
+  # end 
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_tweeeet
