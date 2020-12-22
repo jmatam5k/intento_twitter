@@ -8,6 +8,8 @@ class TweeeetsController < ApplicationController
     @tweeeets = Tweeeet
     @tweeeet = Tweeeet.new
     @tweeeets = Tweeeet.page.all.order("created_at DESC")#ordena los tweets de forma descendente
+    # @tweeeets = Tweeeet.order(created_at: :desc).page params[:page]
+
 
   end
 
